@@ -15,5 +15,6 @@
 <a class=" text-decoration-none" href="/">Home</a>
 <a class=" text-decoration-none" href="exchange.php">Exchange</a>
 <a class=" text-decoration-none" href="fri-card.php">Friend Card</a>
+<a class=" text-decoration-none" href="fri-card-list.php">Friend Card Lists</a>
 </nav>
 

@@ -1,0 +1,6 @@
+[
+  "{\n    \"name\": \"Ko Kaung\",\n    \"phone\": \"09964470356\",\n    \"address\": \"ma thi par\",\n    \"isReal\": \"yes\",\n    \"photo\": \"friend-profile\\/63b467d3f2167-friend-profile.jpg\"\n}",
+  "{\n    \"name\": \"Ko Thi\",\n    \"phone\": \"09987412422\",\n    \"address\": \"ma thi address\",\n    \"isReal\": \"yes\",\n    \"photo\": \"friend-profile\\/63b467fee6f69-friend-profile.jpg\"\n}",
+  "{\n    \"name\": \"Ma K\",\n    \"phone\": \"09964470356\",\n    \"address\": \"San Yeik Nyein\",\n    \"isReal\": \"yes\",\n    \"photo\": \"friend-profile\\/63b4682a6b163-friend-profile.jpg\"\n}",
+  "{\n    \"name\": \"Denny Kate\",\n    \"phone\": \"09975450526\",\n    \"address\": \"Fake address\",\n    \"isReal\": null,\n    \"photo\": \"friend-profile\\/63b46ac0e4bb0-friend-profile.jpeg\"\n}"
+]
