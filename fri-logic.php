@@ -1,6 +1,13 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] !== "POST" && $_FILES["fri_photo"]["error"] == 0){
+$friends = [];
+$dataFileName = "friend-detail.json";
+
+if(is_file($dataFileName) ){
+    $friends= json_decode(file_get_contents($dataFileName),true);
+}
+
+if($_SERVER["REQUEST_METHOD"] !== "POST" && $_FILES["photo"]["name"] !== 0){
     header("Location:/");
 }
 
@@ -10,33 +17,24 @@ $address= $_POST["fri_address"];
 $isReal= $_POST["isReal"];
 $photo= $_FILES["fri_photo"];
 
-$profileDirName= "friend-profile";
+$dirName= "friend-profile";
 
-if(!is_dir($profileDirName)){
-    mkdir($profileDirName);
+if(!is_dir($dirName)){
+    mkdir($dirName);
 }
 
-$fileName= $profileDirName."/".uniqid()."-friend-profile".".".pathinfo($photo["name"])["extension"];
+$fileName = $dirName."/".uniqid()."-profile".".".pathinfo($photo["name"])['extension'];
 
 move_uploaded_file($photo["tmp_name"],$fileName);
 
 $data = [
-    "name" => $name,"phone" => $phone,"address" => $address,"isReal" => $isReal,"photo" => $fileName
+    "name"=> $name,"phone"=>$phone,"address"=> $address,"isReal"=> $isReal,"photo"=> $fileName
 ];
-$encodedData = json_encode($data,JSON_PRETTY_PRINT);
-$profileData = "friend-data.json";
 
-$jsonFile = file_get_contents("friend-data.json");
-$tmpArray = json_decode($jsonFile,true);
-$tmpArray[] = $encodedData;
-$jsonData = json_encode($tmpArray);
+array_push($friends,$data);
+$fileOpen = fopen($dataFileName,"w");
+fwrite($fileOpen,json_encode($friends));
 
-file_put_contents($profileData,$jsonData);
-
-header("Location:fri-card.php");
-
-
-
-
+fclose($fileOpen);
 
 ?>

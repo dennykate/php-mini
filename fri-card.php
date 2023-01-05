@@ -1,5 +1,7 @@
 <?php include_once "./head.php" ?>
 
+
+
 <div class="p-3">
     <h2>Create Friend Card</h2>
 
@@ -31,6 +33,27 @@
 
         <button class="btn btn-primary w-100">Create Friend Card</button>
     </form>
+
+    <div class=" my-5 gap-3">
+        <?php 
+            $dataFileName = "friend-detail.json";
+            
+            $friends = json_decode(file_get_contents($dataFileName),true);
+        ?>
+
+        <?php foreach($friends as $key => $friend): ?>
+            <div class="card">
+                <div class=" card-body text-center">
+                    <img src="<?= $friend["photo"] ?>" alt="" class="rounded-circle object-fit-cover" width="100" height="100">
+                    <h4><?= $friend["name"] ?></h4>
+                    <p><?= $friend["phone"] ?></p>
+                    <p><?= $friend["address"] ?></p>
+                    <a href="./friend-detail.php?index=<?= $key ?>" class=" btn btn-primary w-100">Detail</a>
+                    <a href="./friend-delete.php?index=<?= $key ?>" class=" btn btn-danger w-100 mt-2">Delete</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 
 <?php include_once "./foot.php" ?>
